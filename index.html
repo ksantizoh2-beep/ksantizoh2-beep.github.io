@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>KIND GLS Electronics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilos.css" />
+  <!-- jsPDF (debe ir antes de tu script) -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <div class="brand">
+    <div class="logo-rayo">⚡</div>
+    <div>
+      <h1>KIND GLS Electronics</h1>
+      <p>Computadoras, periféricos y más.</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="https://www.hp.com" target="_blank" class="link">HP</a>
+    <a href="https://www.logitech.com" target="_blank" class="link">Logitech</a>
+    <button id="btnAbrirCarrito" class="btn-icon" aria-label="Abrir carrito">
+      🛒 <span id="carritoBadge" class="badge">0</span>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <section id="infoTienda" class="card hero">
+    <div class="hero-text">
+      <h2>Bienvenido</h2>
+      <p>Explora nuestro catálogo: laptops, audífonos, mouse gamer, teclados y monitores.</p>
+      <p><strong>Para continuar debes iniciar sesión.</strong></p>
+    </div>
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="accest/apple.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- LOGIN -->
+  <section id="seccionLogin" class="card">
+    <h2>Inicio de sesión</h2>
+    <label>Usuario:
+      <input type="text" id="usuario" placeholder="alumno" />
+    </label>
+    <label>Contraseña:
+      <input type="password" id="clave" placeholder="2025" />
+    </label>
+    <button type="button" id="btnIngresar">Ingresar</button>
+    <p id="msgLogin" class="error"></p>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section id="seccionCompra" class="card oculto">
+    <div class="catalogo-header">
+      <h2>Catálogo</h2>
+      <p>Haz clic en <em>Agregar al carrito</em> para seleccionar tus productos.</p>
+    </div>
+    <div id="gridProductos" class="grid"></div>
+  </section>
+
+  <!-- RESUMEN -->
+  <section id="seccionFin" class="card oculto">
+    <h2>Resumen de la compra</h2>
+    <p id="resumen"></p>
+  </section>
+</main>
+
+<!-- PANEL CARRITO -->
+<aside id="carritoPanel" class="carrito">
+  <header class="carrito-top">
+    <h3>Tu carrito</h3>
+    <button id="btnCerrarCarrito" class="btn-icon" aria-label="Cerrar carrito">✕</button>
+  </header>
+
+  <div id="carritoLista" class="carrito-lista"></div>
+
+  <div class="carrito-controles">
+    <div class="campo">
+      <label>Método de pago</label>
+      <div class="radios">
+        <label><input type="radio" name="pago" value="Tarjeta" checked /> Tarjeta</label>
+        <label><input type="radio" name="pago" value="Efectivo" /> Efectivo</label>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label for="envio">Tipo de envío</label>
+      <select id="envio">
+        <option value="0">Envío normal (Q0)</option>
+        <option value="25">Envío rápido (Q25)</option>
+        <option value="50">Envío al exterior (Q50)</option>
+      </select>
+    </div>
+
+    <div class="totales">
+      <div><span>Subtotal:</span><strong id="txtSubtotal">Q0.00</strong></div>
+      <div><span>Envío:</span><strong id="txtEnvio">Q0.00</strong></div>
+      <div class="line"></div>
+      <div class="gran-total"><span>Total:</span><strong id="txtTotal">Q0.00</strong></div>
+    </div>
+
+    <button id="btnFinalizar" class="btn-primary">Finalizar compra</button>
+  </div>
+</aside>
+
+<footer class="footer">
+  <p>Demo HTML + JavaScript — KIND GLS</p>
+</footer>
+</body>
+</html>
